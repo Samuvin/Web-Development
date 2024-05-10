@@ -10,40 +10,49 @@ const dice = document.querySelector(".dice");
 const currentScore0El = document.querySelector("#current--0");
 const currentScore1El = document.querySelector("#current--1");
 
-const player1 = document.querySelector(".player--0");
-const player2 = document.querySelector(".player--1");
-let active = 0;
+const player0 = document.querySelector(".player--0");
+const player1 = document.querySelector(".player--1");
 
 score0El.textContent = 0;
 score1El.textContent = 0;
+
+const scores = [0, 0];
 let currentScore = 0;
+let active = 0;
 // rolling dice
+
+const switchPlayer = function () {
+	document.getElementById(`current--${active}`).textContent = 0;
+	active = active === 0 ? 1 : 0;
+	currentScore = 0;
+	player0.classList.toggle("player--active");
+	player1.classList.toggle("player--active");
+};
 
 btnroll.addEventListener("click", () => {
 	const roll = Math.trunc(Math.random() * 6) + 1;
 	dice.classList.remove("hidden");
 	dice.src = `dice-${roll}.png`;
-
-	if (roll !== 1) {
+	if (roll != 1) {
 		currentScore += roll;
-		if (active == 0) {
-			currentScore0El.textContent = currentScore;
-		} else {
-			currentScore1El.textContent = currentScore;
-		}
+		document.getElementById(`current--${active}`).textContent = currentScore;
 	} else {
-		currentScore = 0;
+		switchPlayer();
+	}
+});
 
-		if (player1.classList.contains("player--active")) {
-			player1.classList.remove("player--active");
-			player2.classList.add("player--active");
-			currentScore0El.textContent = 0;
-			active = 1;
-		} else {
-			player2.classList.remove("player--active");
-			player1.classList.add("player--active");
-			currentScore1El.textContent = 0;
-			active = 0;
-		}
+btnhold.addEventListener("click", () => {
+	scores[active] += currentScore;
+	document.getElementById(`score--${active}`).textContent = scores[active];
+
+	if (scores[active] >= 10) {
+		document
+			.querySelector(`.player--${active}`)
+			.classList.add("player--winner");
+		document
+			.querySelector(`.player--${active}`)
+			.classList.remove("player--active");
+	} else {
+		switchPlayer();
 	}
 });
