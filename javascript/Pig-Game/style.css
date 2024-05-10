@@ -158,7 +158,7 @@ main {
 }
 
 .player--winner {
-	background: linear-gradient(orange, pink);
+	background: linear-gradient(orange, rgb(71, 0, 12));
 }
 
 .player--winner .name {

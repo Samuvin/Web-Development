@@ -13,15 +13,6 @@ const currentScore1El = document.querySelector("#current--1");
 const player0 = document.querySelector(".player--0");
 const player1 = document.querySelector(".player--1");
 
-score0El.textContent = 0;
-score1El.textContent = 0;
-
-const scores = [0, 0];
-let currentScore = 0;
-let active = 0;
-let playing = true;
-// rolling dice
-
 const switchPlayer = function () {
 	document.getElementById(`current--${active}`).textContent = 0;
 	active = active === 0 ? 1 : 0;
@@ -30,6 +21,27 @@ const switchPlayer = function () {
 	player1.classList.toggle("player--active");
 };
 
+let scores = [0, 0];
+let currentScore = 0;
+let active = 0;
+let playing = true;
+
+const init = function () {
+	score0El.textContent = 0;
+	score1El.textContent = 0;
+	currentScore0El.textContent = 0;
+	currentScore1El.textContent = 0;
+	player0.classList.remove("player--winner");
+	player1.classList.remove("player--winner");
+	player1.classList.remove("player--active");
+	player0.classList.add("player--active");
+
+	scores = [0, 0];
+	currentScore = 0;
+	active = 0;
+	playing = true;
+};
+init();
 btnroll.addEventListener("click", () => {
 	if (playing) {
 		const roll = Math.trunc(Math.random() * 6) + 1;
@@ -48,7 +60,7 @@ btnhold.addEventListener("click", () => {
 	if (playing) {
 		scores[active] += currentScore;
 		document.getElementById(`score--${active}`).textContent = scores[active];
-		if (scores[active] >= 10) {
+		if (scores[active] >= 100) {
 			dice.classList.add("hidden");
 			document
 				.querySelector(`.player--${active}`)
@@ -62,3 +74,5 @@ btnhold.addEventListener("click", () => {
 		}
 	}
 });
+
+btnnew.addEventListener("click", init);
