@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time_table</title>
+    <style>
+      table,
+      tr,
+      th,
+      td {
+        border: 2px solid black;
+        height: 2rem;
+        
+      }
+      th,
+      td {
+        width: 7rem;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+      }
+      table {
+        border-collapse: collapse;
+        padding: 5px;
+      }
+      .break {
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        width: 1rem;
+      }
+      .header {
+        background-color: gray;
+      }
+
+      td {
+        text-align: center;
+      }
+      .Main {
+        text-align: center;
+      }
+      .Container
+      {
+        margin-top: 5.2rem;
+      }
+      .icon{
+        margin-top: .5rem;
+      }
+      .btn{
+        background-color: grey;
+      }
+      a{
+        color: black;
+        text-decoration: none;
+      }
+      .btn:hover{
+        background-color:cadetblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Container">
+      <h1 class="Main">Student Time Table</h1>
+      <h2 class="Main">II YEAR</h2>
+      <div class="container">
+        <table>
+            <tr class="header">
+              <th>Timing</th>
+              <th>1</th>
+              <th>2</th>
+              <th rowspan="8" class="break">BREAK</th>
+              <th>3</th>
+              <th>4</th>
+              <th rowspan="8" class="break">LUNCH</th>
+              <th>5</th>
+              <th>6</th>
+              <th rowspan="8" class="break">BREAK</th>
+              <th>7</th>
+              <th>8</th>
+            </tr>
+            <tr class="header">
+              <th>Start_Time</th>
+              <th>8:30 am</th>
+              <th>9:20 am</th>
+              <th>10:30 am</th>
+              <th>11:20 am</th>
+              <th>12:50 am</th>
+              <th>1:40 pm</th>
+              <th>2:45 pm</th>
+              <th>3:45 pm</th>
+            </tr>
+            <tr class="header">
+              <th>End_Time</th>
+              <th>9:20 am</th>
+              <th>10:10 am</th>
+              <th>11:20 am</th>
+              <th>12:10 pm</th>
+              <th>01:40 pm</th>
+              <th>02:30pm</th>
+              <th>03:35pm</th>
+              <th>04:25 pm</th>
+            </tr>
+            
+            <tr>
+              <th>Monday</th>
+              <td>FOE</td>
+              <td>LA</td>
+              <td>WAD</td>
+              <td>IIME</td>
+              <td>ASE</td>
+              <td>IC</td>
+              <td>IC</td>
+              <td>FOE</td>
+            </tr>
+            <tr>
+              <th>Tuesday</th>
+              <td>WAD</td>
+              <td>LA</td>
+              <td>ASE</td>
+              <td>ADS</td>
+              <td>ASE</td>
+              <td>BSVS III</td>
+              <td colspan="2">BSVS III</td>
+            </tr>
+            <tr>
+              <th>Wednesday</th>
+              <td>WAD</td>
+              <td>LA</td>
+              <td colspan="2">ADS</td>
+              <td>ASE</td>
+              <td>WAD LAB</td>
+              <td colspan="2">WAD LAB</td>
+            </tr>
+            <tr>
+              <th>Thursday</th>
+              <td>FOE</td>
+              <td>LA</td>
+              <td>WAD</td>
+              <td>IIME</td>
+              <td colspan="2">ADS</td>
+              <td>CAC</td>
+              <td>FOE</td>
+            </tr>
+            <tr>
+              <th>Friday</th>
+              <td colspan="2">ADS</td>
+              <td>ASE</td>
+              <td>TWM</td>
+              <td>WAD</td>
+              <td>ASE</td>
+              <td>IIME</td>
+              <td>LA</td>
+            </tr>
+        </table>
+      </div>
+     <div class="container icon">
+        <button class="btn "><a href="Staff_details.html" target="_blank">Staff Details</a></button>
+     </div>
+    </div>
+  </body>
+</html>
