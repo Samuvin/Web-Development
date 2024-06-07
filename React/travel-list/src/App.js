@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 
 const initialItems = [
@@ -83,3 +84,30 @@ function Stats() {
 		</footer>
 	);
 }
+=======
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+
+export default App;
+>>>>>>> 24fe82dfd58135b9e44b7ca2b173e09012b0948b
