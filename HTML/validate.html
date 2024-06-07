@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Form Validation</title>
+		<style>
+			.error {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Form Validation</h1>
+		<form id="loginForm" onsubmit="return validateForm()">
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="username" required /><br />
+			<span id="usernameError" class="error"></span><br />
+
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" required /><br />
+			<span id="passwordError" class="error"></span><br />
+
+			<input type="submit" value="Login" />
+		</form>
+
+		<script>
+			function validateForm() {
+				var username = document.getElementById("username").value;
+				var password = document.getElementById("password").value;
+				var usernameError = document.getElementById("usernameError");
+				var passwordError = document.getElementById("passwordError");
+				var isValid = true;
+
+				// Reset previous error messages
+				usernameError.textContent = "";
+				passwordError.textContent = "";
+
+				// Validate username
+				if (username.trim() === "") {
+					usernameError.textContent = "Please enter your username.";
+					isValid = false;
+				}
+
+				// Validate password
+				if (password.trim() === "") {
+					passwordError.textContent = "Please enter your password.";
+					isValid = false;
+				} else if (password.length < 6) {
+					passwordError.textContent =
+						"Password must be at least 6 characters long.";
+					isValid = false;
+				}
+
+				return isValid;
+			}
+		</script>
+	</body>
+</html>
