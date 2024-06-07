@@ -13,13 +13,21 @@
 	<body>
 		<h1>Form Validation</h1>
 		<form id="loginForm" onsubmit="return validateForm()">
-			<label for="username">Username:</label>
+			<label for="username">Username:</label><br />
 			<input type="text" id="username" name="username" required /><br />
 			<span id="usernameError" class="error"></span><br />
 
-			<label for="password">Password:</label>
+			<label for="password">Password:</label><br />
 			<input type="password" id="password" name="password" required /><br />
 			<span id="passwordError" class="error"></span><br />
+
+			<label for="email">Email:</label><br />
+			<input type="email" id="email" name="email" required /><br />
+			<span id="emailError" class="error"></span><br />
+
+			<label for="mobile">Mobile Number:</label><br />
+			<input type="tel" id="mobile" name="mobile" required /><br />
+			<span id="mobileError" class="error"></span><br />
 
 			<input type="submit" value="Login" />
 		</form>
@@ -28,13 +36,19 @@
 			function validateForm() {
 				var username = document.getElementById("username").value;
 				var password = document.getElementById("password").value;
+				var email = document.getElementById("email").value;
+				var mobile = document.getElementById("mobile").value;
 				var usernameError = document.getElementById("usernameError");
 				var passwordError = document.getElementById("passwordError");
+				var emailError = document.getElementById("emailError");
+				var mobileError = document.getElementById("mobileError");
 				var isValid = true;
 
 				// Reset previous error messages
 				usernameError.textContent = "";
 				passwordError.textContent = "";
+				emailError.textContent = "";
+				mobileError.textContent = "";
 
 				// Validate username
 				if (username.trim() === "") {
@@ -52,7 +66,38 @@
 					isValid = false;
 				}
 
+				// Validate email
+				if (email.trim() === "") {
+					emailError.textContent = "Please enter your email.";
+					isValid = false;
+				} else if (!validateEmail(email)) {
+					emailError.textContent = "Please enter a valid email address.";
+					isValid = false;
+				}
+
+				// Validate mobile number
+				if (mobile.trim() === "") {
+					mobileError.textContent = "Please enter your mobile number.";
+					isValid = false;
+				} else if (!validateMobile(mobile)) {
+					mobileError.textContent =
+						"Please enter a valid 10-digit mobile number.";
+					isValid = false;
+				}
+
 				return isValid;
+			}
+
+			function validateEmail(email) {
+				// Regular expression for validating email addresses
+				var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+				return regex.test(email);
+			}
+
+			function validateMobile(mobile) {
+				// Regular expression for validating 10-digit mobile numbers
+				var regex = /^[0-9]{10}$/;
+				return regex.test(mobile);
 			}
 		</script>
 	</body>

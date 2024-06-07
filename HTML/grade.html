@@ -1,0 +1,50 @@
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grade Calculation</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Student Grade Calculation</h1>
+        <label for="subject1">Subject 1 Marks:</label>
+        <input type="number" id="subject1"> <br> <br>
+        <label for="subject2">Subject 2 Marks:</label>
+        <input type="number" id="subject2"> <br> <br>
+        <label for="subject3">Subject 3 Marks:</label>
+        <input type="number" id="subject3"> <br> <br>
+        <label for="subject4">Subject 4 Marks:</label>
+        <input type="number" id="subject4"> <br> <br>
+        <label for="subject5">Subject 5 Marks:</label>
+        <input type="number" id="subject5"> <br> <br>
+        <button onclick="calculateGrade()">Calculate Grade</button>  <br> <br>
+        <div class="result" id="result"></div>    
+    </div>
+
+    <script>
+    function calculateGrade() {
+    let subject1 = parseFloat(document.getElementById('subject1').value);
+    let subject2 = parseFloat(document.getElementById('subject2').value);
+    let subject3 = parseFloat(document.getElementById('subject3').value);
+    let subject4 = parseFloat(document.getElementById('subject4').value);
+    let subject5 = parseFloat(document.getElementById('subject5').value);
+    let total = subject1 + subject2 + subject3 + subject4 + subject5;
+    let average = total / 5;
+    let grade;
+    if (average >= 90) {
+        grade = 'A';
+    } else if (average >= 80) {
+        grade = 'B';
+    } else if (average >= 70) {
+        grade = 'C';
+    } else if (average >= 60) {
+        grade = 'D';
+    } else {
+        grade = 'F';
+    }
+    document.getElementById('result').innerHTML = `Total Marks: ${total} <br> Average Marks: ${average.toFixed(2)} <br> Grade: ${grade}`;
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Number to Words</title>
+	</head>
+	<body>
+		<h1>Number to Words</h1>
+		<input type="text" id="number" required " />
+		<button onclick="convertToWords()">Convert to Words</button>
+		<p id="result"></p>
+
+		<script>
+			function convertToWords() {
+				var number = document.getElementById("number").value;
+				if (number <= 999) {
+					var words = numberToWords(number);
+					document.getElementById("result").innerHTML = words;
+				} else {
+					alert("Invalid input. Please enter a number between 0 and 999.");
+				}
+			}
+
+			function numberToWords(n) {
+				var ones = [
+					"zero",
+					"One",
+					"Two",
+					"Three",
+					"Four",
+					"Five",
+					"Six",
+					"Seven",
+					"Eight",
+					"Nine",
+				];
+				var teens = [
+					"Ten",
+					"Eleven",
+					"Twelve",
+					"Thirteen",
+					"Fourteen",
+					"Fifteen",
+					"Sixteen",
+					"Seventeen",
+					"Eighteen",
+					"Nineteen",
+				];
+				var tens = [
+					"",
+					"",
+					"Twenty",
+					"Thirty",
+					"Forty",
+					"Fifty",
+					"Sixty",
+					"Seventy",
+					"Eighty",
+					"Ninety",
+				];
+				var hundreds = [
+					"",
+					"One Hundred",
+					"Two Hundred",
+					"Three Hundred",
+					"Four Hundred",
+					"Five Hundred",
+					"Six Hundred",
+					"Seven Hundred",
+					"Eight Hundred",
+					"Nine Hundred",
+				];
+
+				if (n < 10) {
+					return ones[n];
+				} else if (n < 20) {
+					return teens[n - 10];
+				} else if (n < 100) {
+					return (
+						tens[Math.floor(n / 10)] + (n % 10 > 0 ? " " + ones[n % 10] : "")
+					);
+				} else if (n < 1000) {
+					return (
+						hundreds[Math.floor(n / 100)] +
+						(n % 100 > 0 ? " and " + numberToWords(n % 100) : "")
+					);
+				} else {
+					return "Invalid input";
+				}
+			}
+		</script>
+	</body>
+</html>
