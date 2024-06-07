@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Country Capitals</title>
+	</head>
+	<body>
+		<h2>Select a Country:</h2>
+		<select id="country" onchange="showCapital()">
+			<option value="">Select a country</option>
+			<option value="France">France</option>
+			<option value="Germany">Germany</option>
+			<option value="Italy">Italy</option>
+			<option value="Spain">Spain</option>
+			<option value="United Kingdom">United Kingdom</option>
+		</select>
+
+		<div id="capital"></div>
+
+		<script>
+			function showCapital() {
+				var select = document.getElementById("country");
+				var capitalDiv = document.getElementById("capital");
+				var selectedCountry = select.options[select.selectedIndex].value;
+
+				var capital = "";
+				switch (selectedCountry) {
+					case "France":
+						capital = "Paris";
+						break;
+					case "Germany":
+						capital = "Berlin";
+						break;
+					case "Italy":
+						capital = "Rome";
+						break;
+					case "Spain":
+						capital = "Madrid";
+						break;
+					case "United Kingdom":
+						capital = "London";
+						break;
+					default:
+						capital = "";
+				}
+				capitalDiv.textContent = "Capital: " + capital;
+			}
+		</script>
+	</body>
+</html>
