@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Alphabetical List in Reverse Order</title>
+		<style>
+			.custom-list {
+				list-style-type: none;
+				padding: 0;
+			}
+			.custom-list li {
+				margin: 5px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Alphabetical List in Reverse Order</h1>
+		<ol class="custom-list" id="alphabeticalList">
+			<!-- List items will be dynamically inserted here -->
+		</ol>
+
+		<script>
+			const list = document.getElementById("alphabeticalList");
+			const items = [
+				"Item 1",
+				"Item 2",
+				"Item 3",
+				"Item 4",
+				"Item 5",
+				"Item 6",
+				"Item 7",
+				"Item 8",
+				// Add more items as needed
+			];
+
+			const alphabet = "abcdefghijklmnopqrstuvwxyz".split("").reverse();
+			const alphabetLength = alphabet.length;
+
+			items.forEach((item, index) => {
+				const letter = alphabet[index % alphabetLength];
+				const listItem = document.createElement("li");
+				listItem.textContent = `${letter}. ${item}`;
+				list.appendChild(listItem);
+			});
+		</script>
+	</body>
+</html>
