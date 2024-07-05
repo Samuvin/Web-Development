@@ -4,12 +4,17 @@
   "description": "Monogdb",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "author": "Spryzen",
   "license": "ISC",
   "dependencies": {
+    "eslint": "^9.6.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
     "express": "^4.19.2",
-    "express4": "^0.0.1"
+    "express4": "^0.0.1",
+    "morgan": "^1.10.0",
+    "prettier": "^3.3.2"
   }
 }
