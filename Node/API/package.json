@@ -4,11 +4,13 @@
   "description": "Monogdb",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start:dev": "nodemon server.js",
+    "start:prod": "NODE_ENV=production nodemon server.js"
   },
   "author": "Spryzen",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "eslint": "^9.6.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
